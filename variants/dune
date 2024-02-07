@@ -1,0 +1,3 @@
+(library
+ (name variants)
+ (libraries base core stdio))

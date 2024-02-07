@@ -1,0 +1,3 @@
+(library
+ (name guided_toure)
+ (libraries base stdio))
