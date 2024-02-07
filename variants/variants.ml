@@ -56,3 +56,5 @@ let color_to_int = function
 
 (* 色情報を加えて出力する *)
 let color_print color s = printf "%s\n" (color_by_number (color_to_int color) s)
+
+type figure = Point | Circle of int | Rectangle of int * int | Square of int
