@@ -43,5 +43,15 @@ let normalized = remove_sequential_duplicates [ 1; 1; 2; 3; 3; 4; 4; 1; 1; 1 ]
 (* [1;2;3;4;1] *)
 
 (* Option *)
+let divide x y = if y = 0 then None else Some (x / y)
 
-(* Pattern matching *)
+(* 拡張子付きのファイル名を受け取り、小文字に直す *)
+let downcase_extension filename =
+  match String.rsplit2 filename ~on:'.' with
+  | None -> filename
+  | Some (base, ext) -> base ^ "." ^ String.lowercase ext
+
+let normalized_files =
+  List.map ~f:downcase_extension
+    [ "Hello_World.TXT"; "Hello_World.txt"; "Hello_World" ]
+(* ["Hello_World.txt"; "Hello_World.txt"; "Hello_World"] *)
