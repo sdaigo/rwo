@@ -21,7 +21,12 @@ let counts_in_languages = List.map languages ~f:String.length
 (* Baseでは map に渡す関数はラベル付き *)
 let counts_in_languages' = List.map ~f:String.length languages
 let languages' = "French" :: "Spanish" :: languages
-let my_favorite_languages (my_favorite :: _rest) = my_favorite
+
+let my_favorite_languages = function
+  | [] -> None
+  | [ x ] -> Some x
+  | my_favorite :: _ -> Some my_favorite
+
 let my = my_favorite_languages languages'
 
 let my_favorite_language' languages =
